@@ -32,7 +32,7 @@ export async function GET(request: Request) {
       pendingVideos.map((video: { id: string }) => syncService.processPendingVideo(video.id))
     );
 
-    const successCount = results.filter(r => r.status === "fulfilled").length;
+    const successCount = results.filter((r: any) => r.status === "fulfilled").length;
 
     return NextResponse.json({
       success: true,
