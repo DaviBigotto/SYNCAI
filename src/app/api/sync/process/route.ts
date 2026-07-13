@@ -29,7 +29,7 @@ export async function GET(request: Request) {
 
     // Processa os vídeos (idealmente em paralelo ou com Promise.allSettled)
     const results = await Promise.allSettled(
-      pendingVideos.map((video) => syncService.processPendingVideo(video.id))
+      pendingVideos.map((video: { id: string }) => syncService.processPendingVideo(video.id))
     );
 
     const successCount = results.filter(r => r.status === "fulfilled").length;
