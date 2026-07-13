@@ -1,53 +1,53 @@
 # TikTok Sync
 
-TikTok Sync is a modern web application built to streamline and synchronize data/content with TikTok. This project serves as a personal dashboard to manage integrations, view analytics, and automate tasks.
+O TikTok Sync é uma aplicação web moderna construída para automatizar e sincronizar conteúdo do TikTok diretamente para o Instagram Reels. Este projeto funciona como um painel pessoal para gerenciar integrações, visualizar automações e publicar vídeos sem esforço.
 
-## 🚀 Technologies Used
+## 🚀 Tecnologias Utilizadas
 
-This project is built with a modern tech stack to ensure performance, scalability, and a great developer experience:
+Este projeto foi construído com ferramentas modernas para garantir alta performance e escalabilidade:
 
 - **Framework**: [Next.js 16](https://nextjs.org/) (React 19)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) with Framer Motion for animations
-- **Database ORM**: [Prisma](https://www.prisma.io/) with PostgreSQL
-- **Authentication**: [NextAuth.js](https://next-auth.js.org/) (Auth.js)
-- **UI Components**: Shadcn UI & Lucide React for icons
-- **Data Visualization**: Recharts
+- **Estilização**: [Tailwind CSS 4](https://tailwindcss.com/) com Framer Motion para animações
+- **Banco de Dados (ORM)**: [Prisma](https://www.prisma.io/) com PostgreSQL (Neon)
+- **Autenticação**: [NextAuth.js](https://next-auth.js.org/)
+- **Componentes de Interface**: Shadcn UI & Lucide React para ícones
+- **Integrações de API**: Meta Graph API (Instagram) e TikWM API (TikTok)
 
-## 📦 Getting Started
+## 📦 Como Rodar o Projeto
 
-### Prerequisites
+### Pré-requisitos
 
-- Node.js installed
-- PostgreSQL database
+- Node.js instalado no seu computador
+- Um banco de dados PostgreSQL (recomenda-se Neon ou Vercel Postgres)
 
-### Installation
+### Instalação e Execução Local
 
-1. Clone the repository:
+1. Clone este repositório:
    ```bash
-   git clone https://github.com/your-username/tiktok-sync.git
-   cd tiktok-sync
+   git clone https://github.com/DaviBigotto/SYNCAI.git
+   cd SYNCAI
    ```
 
-2. Install dependencies:
+2. Instale as dependências:
    ```bash
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env` file in the root directory and configure your database and authentication variables (e.g., `DATABASE_URL`, `NEXTAUTH_SECRET`, etc.).
+3. Configure as variáveis de ambiente:
+   Crie um arquivo chamado `.env` na raiz do projeto e configure as variáveis de autenticação e banco de dados (ex: `DATABASE_URL`, `AUTH_SECRET`, `GITHUB_ID`, `GITHUB_SECRET`, etc.).
 
-4. Run database migrations:
+4. Atualize o banco de dados (Prisma):
    ```bash
    npx prisma db push
    ```
 
-5. Start the development server:
+5. Inicie o servidor de desenvolvimento:
    ```bash
    npm run dev
    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o sistema rodando.
 
-## 📝 License
+## 📝 Licença
 
-This is a personal project.
+Este é um projeto de automação pessoal.
