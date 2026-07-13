@@ -3,10 +3,10 @@ import axios from "axios";
 
 export class InstagramProvider implements SocialMediaProvider {
   name = "instagram";
-  private accessToken: string;
-  private instagramAccountId: string;
+  private accessToken?: string;
+  private instagramAccountId?: string;
 
-  constructor(accessToken: string, accountId: string) {
+  constructor(accessToken?: string, accountId?: string) {
     this.accessToken = accessToken;
     this.instagramAccountId = accountId;
   }
@@ -87,7 +87,7 @@ export class InstagramProvider implements SocialMediaProvider {
       const mediaId = publishResponse.data.id;
       
       console.log(`Sucesso! Reel publicado com ID: ${mediaId}`);
-      return { success: true, mediaId };
+      return { success: true, postId: mediaId };
 
     } catch (error: any) {
       console.error("Erro na API do Instagram:", error.response?.data || error.message);

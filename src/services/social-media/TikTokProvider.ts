@@ -33,7 +33,7 @@ export class TikTokProvider implements SocialMediaProvider {
     }
   }
 
-  async publishPost(mediaUrl: string, caption?: string) {
+  async publishPost(mediaUrl: string, caption?: string): Promise<{ success: boolean; postId?: string; error?: string }> {
     throw new Error("TikTokProvider.publishPost não suportado. Usamos o TikTok apenas como fonte (Read-Only).");
   }
 }

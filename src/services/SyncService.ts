@@ -98,6 +98,12 @@ export class SyncService {
       // Simulação do Download + Upload
       const mediaUrl = `https://mock-download-server.com/video/${video.originalId}.mp4`;
       
+      const settings = await prisma.settings.findUnique({ where: { userId: video.userId } });
+      this.instagramProvider = new InstagramProvider(
+        settings?.instagramAccessToken || undefined, 
+        settings?.instagramAccountId || undefined
+      );
+
       const result = await this.instagramProvider.publishPost(mediaUrl, video.description || "");
 
       if (result.success) {

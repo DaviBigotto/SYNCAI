@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Zap, Play, ArrowRight, CheckCircle2, LayoutDashboard, Instagram, Video } from "lucide-react";
+import { Zap, Play, ArrowRight, CheckCircle2, LayoutDashboard, Video } from "lucide-react";
 
 export default function Home() {
   return (

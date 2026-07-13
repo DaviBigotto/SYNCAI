@@ -232,7 +232,7 @@ export default async function DashboardPage() {
           </CardHeader>
           <CardContent className="p-0 flex-1">
             <div className="flex flex-col p-2">
-              {recentLogs.length > 0 ? recentLogs.map((log) => {
+              {recentLogs.length > 0 ? recentLogs.map((log: any) => {
                 let Icon = Calendar;
                 let color = "text-muted-foreground";
                 let bg = "bg-white/5";

@@ -24,7 +24,7 @@ export default async function SettingsPage() {
           initialUsername={settings?.instagramUsername} 
           initialAccountId={settings?.instagramAccountId}
           initialAccessToken={settings?.instagramAccessToken}
-          tokenExpiresAt={settings?.instagramTokenExpiresAt}
+          tokenExpiresAt={(settings as any)?.instagramTokenExpiresAt}
         />
       </div>
     </div>

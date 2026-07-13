@@ -45,26 +45,27 @@ export async function publishVideoAction(videoId: string) {
     // 2. Tenta publicar no Instagram Real
     const result = await provider.publishPost(video.originalUrl, video.description || "");
 
-    // 3. Sucesso! Marca no banco de dados
-    await prisma.video.update({
-      where: { id: videoId },
-      data: { 
-        status: "COMPLETED",
-        instagramReelId: result.mediaId
-      }
-    });
+    if (result.success) {
+      await prisma.video.update({
+        where: { id: videoId },
+        data: { 
+          status: "COMPLETED",
+          instagramReelId: result.postId
+        }
+      });
 
-    await prisma.syncLog.create({
-      data: {
-        userId,
-        action: "INSTAGRAM_POST",
-        status: "SUCCESS",
-        message: `Reel publicado com sucesso (ID: ${result.mediaId})`
-      }
-    });
+      await prisma.syncLog.create({
+        data: {
+          userId: session.user.id,
+          action: "MANUAL_PUBLISH",
+          status: "SUCCESS",
+          message: `Vídeo publicado no Instagram. ID: ${result.postId}`
+        }
+      });
 
-    revalidatePath("/dashboard/videos")
-    return { success: true }
+      revalidatePath("/dashboard/videos")
+      return { success: true }
+    }
 
   } catch (error: any) {
     // Falha: Pode ser erro de Token, limite de API, etc.
