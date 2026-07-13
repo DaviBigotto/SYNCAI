@@ -75,7 +75,7 @@ export default async function VideosPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {videos.map((video) => (
+          {videos.map((video: any) => (
             <div key={video.id} className="group relative flex flex-col bg-[var(--card)] border border-[var(--sidebar-border)] rounded-xl overflow-hidden hover:border-white/10 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
               
               {/* Thumbnail Container */}
