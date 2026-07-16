@@ -129,7 +129,9 @@ export default async function VideosPage() {
                 
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[11px] font-medium text-muted-foreground">
-                    {new Date(video.createdAt).toLocaleDateString('pt-BR', { month: 'long', day: 'numeric' })}, 14:30
+                    {video.createdAt && !isNaN(new Date(video.createdAt).getTime()) 
+                      ? new Date(video.createdAt).toLocaleDateString('pt-BR', { month: 'long', day: 'numeric' })
+                      : "Data desconhecida"}, 14:30
                   </span>
                   
                   <div className="flex items-center gap-1">
